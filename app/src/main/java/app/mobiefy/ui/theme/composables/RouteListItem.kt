@@ -1,4 +1,4 @@
-package app.mobiefy.components
+package app.mobiefy.ui.theme.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowRight
-import androidx.compose.material.icons.rounded.Battery4Bar
-import androidx.compose.material.icons.rounded.Circle
 import androidx.compose.material.icons.rounded.DirectionsBus
 import androidx.compose.material.icons.rounded.DirectionsWalk
 import androidx.compose.material3.Divider
@@ -22,18 +20,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.mobiefy.R
-import app.mobiefy.ui.theme.black
-import app.mobiefy.ui.theme.divider
-import app.mobiefy.ui.theme.primary
-import app.mobiefy.ui.theme.secondary
-import app.mobiefy.ui.theme.white
+import app.mobiefy.ui.theme.theme.black
+import app.mobiefy.ui.theme.theme.divider
+import app.mobiefy.ui.theme.theme.primary
+import app.mobiefy.ui.theme.theme.secondary
+import app.mobiefy.ui.theme.theme.white
 
 @Preview
 @Composable

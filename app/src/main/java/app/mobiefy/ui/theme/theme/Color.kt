@@ -1,4 +1,4 @@
-package app.mobiefy.ui.theme
+package app.mobiefy.ui.theme.theme
 
 import androidx.compose.ui.graphics.Color
 
