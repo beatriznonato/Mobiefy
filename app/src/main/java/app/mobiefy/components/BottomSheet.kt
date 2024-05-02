@@ -2,6 +2,8 @@ package app.mobiefy.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -46,7 +48,8 @@ fun BottomSheet(pageContent: Unit) {
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberBottomSheetScaffoldState()
 
-    BottomSheetScaffold(scaffoldState = scaffoldState,
+    BottomSheetScaffold(
+        scaffoldState = scaffoldState,
         sheetPeekHeight = 200.dp,
         sheetContainerColor = primary,
         sheetDragHandle = { DragBar() },
@@ -59,23 +62,24 @@ fun BottomSheet(pageContent: Unit) {
 
 @Composable
 fun BottomSheetContent() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 23.dp)
-            .background(white)
-            .clip(RoundedCornerShape(16.dp))
-    ) {
-
-        LazyRow(
+    Row(modifier = Modifier.padding(horizontal = 23.dp)) {
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                //.padding(horizontal = 23.dp, vertical = 15.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(white)
         ) {
-            items(favLocations.size) { index ->
-                FavLocationsBox(index)
-            }
 
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                .padding(horizontal = 23.dp, vertical = 15.dp)
+            ) {
+                items(favLocations.size) { index ->
+                    FavLocationsBox(index)
+                }
+
+            }
         }
     }
 }
@@ -83,10 +87,9 @@ fun BottomSheetContent() {
 @Composable
 fun FavLocationsBox(index: Int) {
     val location = favLocations[index]
-
     Box(
         modifier = Modifier
-        //.padding(horizontal = 23.dp, vertical = 15.dp)
+        .padding(horizontal = 10.dp)
 
     ) {
         IconRound(text = location.title, icon = painterResource(id = location.icon))
