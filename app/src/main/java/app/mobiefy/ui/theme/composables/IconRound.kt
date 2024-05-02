@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.mobiefy.ui.theme.theme.black
@@ -21,7 +21,7 @@ import app.mobiefy.ui.theme.theme.primary
 import app.mobiefy.ui.theme.theme.tertiary
 
 @Composable
-fun IconRound(text: String, icon: ImageVector) {
+fun IconRound(text: String, icon: Painter) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -33,7 +33,7 @@ fun IconRound(text: String, icon: ImageVector) {
                 .height(55.dp),
             contentAlignment = Alignment.Center
         ) {
-            Icon(imageVector = icon, contentDescription = "Search", tint = primary, modifier = Modifier.size(32.dp))
+            Icon(painter = icon, contentDescription = text, tint = primary, modifier = Modifier.size(32.dp))
         }
         Text(text = text, color = black, fontSize = 18.sp)
     }
