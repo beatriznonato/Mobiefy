@@ -1,4 +1,4 @@
-package app.mobiefy.ui.theme.composables
+package app.mobiefy.ui.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -25,11 +25,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.mobiefy.R
-import app.mobiefy.ui.theme.theme.black
-import app.mobiefy.ui.theme.theme.divider
-import app.mobiefy.ui.theme.theme.primary
-import app.mobiefy.ui.theme.theme.secondary
-import app.mobiefy.ui.theme.theme.white
+import app.mobiefy.ui.theme.black
+import app.mobiefy.ui.theme.divider
+import app.mobiefy.ui.theme.primary
+import app.mobiefy.ui.theme.secondary
+import app.mobiefy.ui.theme.white
 
 @Preview
 @Composable

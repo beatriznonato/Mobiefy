@@ -1,4 +1,4 @@
-package app.mobiefy.components
+package app.mobiefy.ui.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -23,10 +24,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import app.mobiefy.R
 import app.mobiefy.data.FavouriteLocation
-import app.mobiefy.ui.theme.composables.IconRound
-import app.mobiefy.ui.theme.theme.primary
-import app.mobiefy.ui.theme.theme.secondary
-import app.mobiefy.ui.theme.theme.white
+import app.mobiefy.ui.theme.primary
+import app.mobiefy.ui.theme.secondary
+import app.mobiefy.ui.theme.white
 
 val favLocations = listOf(
     FavouriteLocation(
@@ -68,6 +68,7 @@ fun BottomSheet(pageContent: Unit) {
 @Composable
 fun BottomSheetContent() {
     Column(modifier = Modifier.padding(horizontal = 23.dp)) {
+        CustomSearchBar()
         Box(
             modifier = Modifier
                 .fillMaxWidth()
