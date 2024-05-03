@@ -33,8 +33,8 @@ fun IconRound(text: String, icon: Painter) {
                 .height(55.dp),
             contentAlignment = Alignment.Center
         ) {
-            Icon(painter = icon, contentDescription = text, tint = primary, modifier = Modifier.size(32.dp))
+            Icon(painter = icon, contentDescription = text, tint = primary, modifier = Modifier.size(28.dp))
         }
-        Text(text = text, color = black, fontSize = 18.sp)
+        Text(text = text, color = black, fontSize = 14.sp)
     }
 }
