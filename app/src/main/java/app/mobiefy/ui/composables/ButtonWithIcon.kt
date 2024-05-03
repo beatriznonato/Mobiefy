@@ -1,4 +1,4 @@
-package app.mobiefy.ui.theme.composables
+package app.mobiefy.ui.composables
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer

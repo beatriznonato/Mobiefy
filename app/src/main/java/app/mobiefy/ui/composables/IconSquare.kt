@@ -1,4 +1,4 @@
-package app.mobiefy.ui.theme.composables
+package app.mobiefy.ui.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,9 +22,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import app.mobiefy.ui.theme.theme.primary
-import app.mobiefy.ui.theme.theme.secondary
-import app.mobiefy.ui.theme.theme.white
+import app.mobiefy.ui.theme.primary
+import app.mobiefy.ui.theme.secondary
+import app.mobiefy.ui.theme.white
 
 @Composable
 fun IconSquare(text: String, icon: ImageVector) {

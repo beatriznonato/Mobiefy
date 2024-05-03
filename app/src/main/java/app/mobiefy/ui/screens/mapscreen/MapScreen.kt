@@ -1,4 +1,4 @@
-package app.mobiefy.ui.theme.screens.mapscreen
+package app.mobiefy.ui.screens.mapscreen
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
