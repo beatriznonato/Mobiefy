@@ -5,13 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.ui.res.painterResource
-import app.mobiefy.components.BottomSheet
-import app.mobiefy.ui.theme.composables.ButtonWithIcon
-import app.mobiefy.ui.theme.screens.mapscreen.MapScreen
-import app.mobiefy.ui.theme.theme.MobiefyTheme
-import app.mobiefy.ui.theme.theme.primary
-import org.w3c.dom.Text
+import app.mobiefy.ui.composables.BottomSheet
+import app.mobiefy.ui.screens.mapscreen.MapScreen
+import app.mobiefy.ui.theme.MobiefyTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

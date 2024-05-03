@@ -69,6 +69,7 @@ fun BottomSheet(pageContent: Unit) {
 fun BottomSheetContent() {
     Column(modifier = Modifier.padding(horizontal = 23.dp)) {
         CustomSearchBar()
+        Spacer(modifier = Modifier.height(15.dp))
         Box(
             modifier = Modifier
                 .fillMaxWidth()
