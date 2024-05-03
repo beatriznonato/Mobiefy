@@ -2,6 +2,7 @@ package app.mobiefy.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -39,6 +40,10 @@ val favLocations = listOf(
     FavouriteLocation(
         title = "Vó",
         icon = R.drawable.ic_heart
+    ),
+    FavouriteLocation(
+        title = "Adicionar",
+        icon = R.drawable.ic_plus
     )
 )
 
@@ -50,7 +55,7 @@ fun BottomSheet(pageContent: Unit) {
 
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
-        sheetPeekHeight = 200.dp,
+        sheetPeekHeight = 150.dp,
         sheetContainerColor = primary,
         sheetDragHandle = { DragBar() },
         sheetContent = {
@@ -62,38 +67,45 @@ fun BottomSheet(pageContent: Unit) {
 
 @Composable
 fun BottomSheetContent() {
-    Row(modifier = Modifier.padding(horizontal = 23.dp)) {
+    Column(modifier = Modifier.padding(horizontal = 23.dp)) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp))
                 .background(white)
         ) {
-
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                .padding(horizontal = 23.dp, vertical = 15.dp)
-            ) {
-                items(favLocations.size) { index ->
-                    FavLocationsBox(index)
+            Row {
+                Spacer(modifier = Modifier.width(10.dp))
+                LazyRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                    //.padding(horizontal = 23.dp, vertical = 15.dp)
+                ) {
+                    items(favLocations.size) { index ->
+                        FavLocationsBox(index)
+                    }
                 }
-
+                Spacer(modifier = Modifier.width(10.dp))
             }
         }
+        Spacer(modifier = Modifier.height(80.dp))
     }
 }
 
 @Composable
 fun FavLocationsBox(index: Int) {
     val location = favLocations[index]
-    Box(
-        modifier = Modifier
-        .padding(horizontal = 10.dp)
-
-    ) {
-        IconRound(text = location.title, icon = painterResource(id = location.icon))
+    Column {
+        Spacer(modifier = Modifier.height(18.dp))
+        Box(
+            modifier = Modifier
+                .padding(horizontal = 10.dp)
+        ) {
+            IconRound(text = location.title, icon = painterResource(id = location.icon))
+        }
+        Spacer(modifier = Modifier.height(13.dp))
     }
+
 }
 
 @Composable

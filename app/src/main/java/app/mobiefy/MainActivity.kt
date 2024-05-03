@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.ui.res.painterResource
 import app.mobiefy.components.BottomSheet
 import app.mobiefy.ui.theme.composables.ButtonWithIcon
+import app.mobiefy.ui.theme.screens.mapscreen.MapScreen
 import app.mobiefy.ui.theme.theme.MobiefyTheme
 import app.mobiefy.ui.theme.theme.primary
 import org.w3c.dom.Text
@@ -24,11 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MobiefyTheme {
                 BottomSheet(
-                    ButtonWithIcon(
-                        text = "Button",
-                        icon = painterResource(id = R.drawable.ic_money_circle),
-                        btnColor = primary
-                    )
+                    MapScreen()
                 )
             }
         }
