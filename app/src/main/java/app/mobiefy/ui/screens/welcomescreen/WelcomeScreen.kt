@@ -74,7 +74,7 @@ fun WelcomeScreen(navController: NavController) {
                     navController.navigate(Routes.Login.route)
                 }
             )
-            Spacer(modifier = Modifier.height(65.dp))
+            Spacer(modifier = Modifier.height(85.dp))
         }
     }
 }
