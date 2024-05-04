@@ -100,4 +100,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
+
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 }
