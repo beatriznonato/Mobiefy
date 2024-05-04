@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import app.mobiefy.ui.screens.loginscreen.LoginScreen
+import app.mobiefy.ui.screens.signupscreen.SignUpScreen
 import app.mobiefy.ui.screens.welcomescreen.WelcomeScreen
 
 @Composable
@@ -20,6 +21,9 @@ fun Navigation() {
         }
         composable(Routes.Login.route) {
             LoginScreen(navController = navController)
+        }
+        composable(Routes.SignUp.route) {
+            SignUpScreen(navController = navController)
         }
     }
 }

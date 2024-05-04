@@ -41,7 +41,8 @@ fun WelcomeScreen(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxHeight()
-                .padding(horizontal = 27.dp), horizontalAlignment = Alignment.CenterHorizontally
+                .padding(horizontal = 27.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
@@ -73,7 +74,7 @@ fun WelcomeScreen(navController: NavController) {
                     navController.navigate(Routes.Login.route)
                 }
             )
-            Spacer(modifier = Modifier.height(53.dp))
+            Spacer(modifier = Modifier.height(65.dp))
         }
     }
 }
