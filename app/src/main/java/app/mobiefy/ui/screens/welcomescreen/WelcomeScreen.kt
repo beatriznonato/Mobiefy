@@ -46,13 +46,13 @@ fun WelcomeScreen(navController: NavController) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     text = "Bem vindo ao",
-                    fontSize = 16.sp,
+                    fontSize = 18.sp,
                     fontFamily = FontFamily(Font(R.font.righteous)),
                     color = primary
                 )
                 Text(
                     text = "Mobiefy",
-                    fontSize = 34.sp,
+                    fontSize = 36.sp,
                     fontFamily = FontFamily(Font(R.font.righteous)),
                     color = primary
                 )
@@ -60,7 +60,7 @@ fun WelcomeScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(38.dp))
             Text(
                 text = "Desbloqueando viagens inteligentes com seu passaporte de mobilidade eficiente!",
-                fontSize = 14.sp,
+                fontSize = 16.sp,
                 color = primary,
                 textAlign = TextAlign.Center
             )

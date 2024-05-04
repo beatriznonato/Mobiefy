@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun ButtonDefault(text: String, btnColor: Color, modifier: Modifier, onClick: () -> Unit) {
@@ -23,6 +24,6 @@ fun ButtonDefault(text: String, btnColor: Color, modifier: Modifier, onClick: ()
         contentPadding = PaddingValues(horizontal = 15.dp, vertical = 8.dp),
         modifier = modifier
     ) {
-        Text(text = text, fontWeight = FontWeight(700))
+        Text(text = text, fontWeight = FontWeight(700), fontSize = 16.sp)
     }
 }
