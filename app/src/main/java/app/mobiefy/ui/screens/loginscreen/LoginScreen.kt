@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -28,11 +29,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -54,6 +58,7 @@ fun LoginScreen(
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val state = viewModel.loginState.collectAsState(initial = null)
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(modifier = Modifier.padding(horizontal = 27.dp)) {
         Spacer(modifier = Modifier.height(135.dp))
@@ -72,6 +77,8 @@ fun LoginScreen(
                 Spacer(modifier = Modifier.height(10.dp))
                 TextField(
                     value = email,
+                    placeholder = {Text(text = "email@exemplo.com")},
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                     onValueChange = { email = it },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -90,6 +97,9 @@ fun LoginScreen(
                 Spacer(modifier = Modifier.height(10.dp))
                 TextField(
                     value = password,
+                    placeholder = {Text(text = "Entre 8 e 20 caracteres")},
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    visualTransformation =  PasswordVisualTransformation(),
                     onValueChange = { password = it },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -110,6 +120,8 @@ fun LoginScreen(
                 onClick = {
                     scope.launch {
                         viewModel.loginUser(email, password)
+                        navController.navigate(Routes.Home.route)
+                        keyboardController?.hide()
                     }
                 }
             )
