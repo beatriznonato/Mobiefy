@@ -110,8 +110,6 @@ fun CustomSearchBar() {
                                 ),
                                 onClick = {
                                     isDialogOpen = false
-                                    // Show the keyboard again if needed
-                                    keyboardController?.show()
                                 }
                             ) {
                                 Text("OK")
