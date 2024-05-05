@@ -1,4 +1,4 @@
-package app.mobiefy.data
+package app.mobiefy.navigation
 
 sealed class Routes(val route: String) {
     object Welcome : Routes("welcome")

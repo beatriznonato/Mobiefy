@@ -4,9 +4,13 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 
+    //API Secret Key
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
+
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -93,13 +97,30 @@ dependencies {
     // Google Maps Compose widgets library
     implementation(libs.google.maps.compose.widgets)
 
+    //Compose Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-    // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation("com.google.firebase:firebase-auth")
+
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
 
-    implementation("androidx.navigation:navigation-compose:2.7.7")
+    // Firebase Authentication
+    implementation("com.google.firebase:firebase-auth-ktx:22.0.0")
+    //implementation("com.google.firebase:firebase-auth")
+
+    // Firebase Cloud Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx:24.6.0")
+
+    // Dagger-Hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 }
