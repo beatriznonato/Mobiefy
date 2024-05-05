@@ -1,4 +1,4 @@
-package app.mobiefy.data
+package app.mobiefy.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost

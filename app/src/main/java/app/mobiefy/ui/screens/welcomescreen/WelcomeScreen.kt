@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import app.mobiefy.R
-import app.mobiefy.data.Routes
+import app.mobiefy.navigation.Routes
 import app.mobiefy.ui.composables.ButtonDefault
 import app.mobiefy.ui.theme.primary
 import app.mobiefy.ui.theme.white
