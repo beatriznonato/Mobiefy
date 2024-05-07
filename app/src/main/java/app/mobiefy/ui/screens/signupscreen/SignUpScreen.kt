@@ -25,7 +25,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -214,7 +213,6 @@ fun SignUpScreen(
                         if (uiState.success) {
                             navController.navigate(Routes.Login.route)
                         }
-
                         Spacer(modifier = Modifier.height(20.dp))
                     }
                 }
@@ -342,7 +340,7 @@ fun PasswordErrorMessage(uiState: SignUpState) {
     var visible by remember { mutableStateOf(false) }
 
     if (isPasswordValid(uiState.password) === "length") {
-        message = "Sue senha deve conter no mínimo 8 caracteres."
+        message = "Sua senha deve conter no mínimo 8 caracteres."
         visible = true
     } else if (isPasswordValid(uiState.password) === "uppercase") {
         message = "Sua senha deve conter no mínimo uma letra maiúscula."
@@ -369,6 +367,5 @@ fun PasswordErrorMessage(uiState: SignUpState) {
                 fontSize = 14.sp,
             )
         }
-
     }
 }

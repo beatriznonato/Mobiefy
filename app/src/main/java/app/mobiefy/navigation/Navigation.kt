@@ -1,7 +1,6 @@
 package app.mobiefy.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -11,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import app.mobiefy.ui.screens.homescreen.HomeScreen
 import app.mobiefy.ui.screens.loginscreen.LoginScreen
+import app.mobiefy.ui.screens.loginscreen.LoginViewModel
 import app.mobiefy.ui.screens.signupscreen.SignUpScreen
 import app.mobiefy.ui.screens.signupscreen.SignUpViewModel
 import app.mobiefy.ui.screens.welcomescreen.WelcomeScreen
@@ -30,7 +30,20 @@ fun Navigation() {
             WelcomeScreen(navController = navController)
         }
         composable(Routes.Login.route) {
-            LoginScreen(navController = navController)
+            val viewModel = koinViewModel<LoginViewModel>()
+            val uiState by viewModel.uiState.collectAsState()
+            val scope = rememberCoroutineScope()
+
+            LoginScreen(
+                uiState = uiState,
+                navController = navController,
+                onLoginClick = {
+                    keyboardController?.hide()
+                    scope.launch {
+                        viewModel.login()
+                    }
+                }
+            )
         }
         composable(Routes.SignUp.route) {
             val viewModel = koinViewModel<SignUpViewModel>()
