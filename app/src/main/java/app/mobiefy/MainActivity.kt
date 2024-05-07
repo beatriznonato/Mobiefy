@@ -7,9 +7,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import app.mobiefy.navigation.Navigation
 import app.mobiefy.ui.theme.MobiefyTheme
-import dagger.hilt.android.AndroidEntryPoint
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge(
@@ -19,6 +19,8 @@ class MainActivity : ComponentActivity() {
             )
         )
         super.onCreate(savedInstanceState)
+        val auth = Firebase.auth
+
         setContent {
             MobiefyTheme {
                 Navigation()

@@ -1,34 +1,61 @@
 package app.mobiefy.ui.screens.signupscreen
+
+import android.util.Log
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import app.mobiefy.data.AuthRepository
-import app.mobiefy.shared.Resource
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.launch
-import javax.inject.Inject
+import app.mobiefy.authentication.FirebaseAuthRepository
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
-@HiltViewModel
-class SignUpViewModel @Inject constructor(
-    private val repository: AuthRepository
-): ViewModel() {
-    val _signUpState = Channel<SignUpState>()
-    val signUpState = _signUpState.receiveAsFlow()
+class SignUpViewModel(
+    private val firebaseAuthRepository: FirebaseAuthRepository
+) : ViewModel() {
 
-    fun signUpUser(email: String, password: String) = viewModelScope.launch {
-        repository.loginUser(email, password).collect{result ->
-            when(result) {
-                is Resource.Success ->{
-                    _signUpState.send(SignUpState(isSuccess = "Login foi realizado!"))
+    private val _uiState = MutableStateFlow(SignUpState())
+    val uiState = _uiState.asStateFlow()
+
+    private val _signUpIsSuccessful = MutableSharedFlow<Boolean>()
+    val signUpIsSuccessful = _signUpIsSuccessful.asSharedFlow()
+
+    init {
+        _uiState.update { currentState ->
+            currentState.copy(
+                onEmailChange = { email ->
+                    _uiState.update {
+                        it.copy(email = email)
+                    }
+                },
+                onPasswordChange = { password ->
+                    _uiState.update {
+                        it.copy(password = password)
+                    }
                 }
-                is Resource.Loading->{
-                    _signUpState.send(SignUpState(isLoading = true))
-                }
-                is Resource.Error ->{
-                    _signUpState.send(SignUpState(isError = result.message))
-                }
+            )
+        }
+    }
+
+    suspend fun signUp() {
+        try {
+            _uiState.update { it.copy(loading = true) }
+            firebaseAuthRepository
+                .signUp(
+                    _uiState.value.email,
+                    _uiState.value.password
+                )
+            _signUpIsSuccessful.emit(true)
+            _uiState.update { it.copy(success = true) }
+        } catch (e: Exception) {
+            Log.e("SignUpViewModel", "signUp: ", e)
+            _uiState.update {
+                it.copy(
+                    error = "Erro ao cadastrar usuario",
+                    success = false
+                )
             }
+        } finally {
+            _uiState.update { it.copy(loading = false) }
         }
     }
 }
