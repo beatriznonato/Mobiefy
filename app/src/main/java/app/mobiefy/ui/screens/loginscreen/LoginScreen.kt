@@ -39,7 +39,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import app.mobiefy.R
 import app.mobiefy.navigation.Routes
@@ -51,13 +50,13 @@ import kotlinx.coroutines.launch
 @Composable
 fun LoginScreen(
     navController: NavController,
-    viewModel: LoginViewModel = hiltViewModel()
+//    viewModel: LoginViewModel = hiltViewModel()
 ) {
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
-    val state = viewModel.loginState.collectAsState(initial = null)
+    //val state = viewModel.loginState.collectAsState(initial = null)
     val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(modifier = Modifier.padding(horizontal = 27.dp)) {
@@ -118,18 +117,18 @@ fun LoginScreen(
                 btnColor = primary,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
-                    scope.launch {
-                        viewModel.loginUser(email, password)
-                        navController.navigate(Routes.Home.route)
-                        keyboardController?.hide()
-                    }
+//                    scope.launch {
+//                        viewModel.loginUser(email, password)
+//                        navController.navigate(Routes.Home.route)
+//                        keyboardController?.hide()
+//                    }
                 }
             )
-            Row(modifier = Modifier.fillMaxWidth()) {
-                if (state.value?.isLoading == true) {
-                    CircularProgressIndicator()
-                }
-            }
+//            Row(modifier = Modifier.fillMaxWidth()) {
+//                if (state.value?.isLoading == true) {
+//                    CircularProgressIndicator()
+//                }
+//            }
             Spacer(modifier = Modifier.weight(1f))
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -150,23 +149,23 @@ fun LoginScreen(
                 )
             }
             Spacer(modifier = Modifier.height(65.dp))
-            LaunchedEffect(key1 = state.value?.isSuccess) {
-                scope.launch {
-                    if (state.value?.isSuccess?.isNotEmpty() == true) {
-                        val success = state.value?.isSuccess
-                        Toast.makeText(context, "${success}", Toast.LENGTH_LONG).show()
-                    }
-                }
-            }
-
-            LaunchedEffect(key1 = state.value?.isError) {
-                scope.launch {
-                    if (state.value?.isError?.isNotEmpty() == true) {
-                        val error = state.value?.isError
-                        Toast.makeText(context, "${error}", Toast.LENGTH_LONG).show()
-                    }
-                }
-            }
+//            LaunchedEffect(key1 = state.value?.isSuccess) {
+//                scope.launch {
+//                    if (state.value?.isSuccess?.isNotEmpty() == true) {
+//                        val success = state.value?.isSuccess
+//                        Toast.makeText(context, "${success}", Toast.LENGTH_LONG).show()
+//                    }
+//                }
+//            }
+//
+//            LaunchedEffect(key1 = state.value?.isError) {
+//                scope.launch {
+//                    if (state.value?.isError?.isNotEmpty() == true) {
+//                        val error = state.value?.isError
+//                        Toast.makeText(context, "${error}", Toast.LENGTH_LONG).show()
+//                    }
+//                }
+//            }
         }
     }
 }
