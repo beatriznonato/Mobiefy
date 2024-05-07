@@ -31,7 +31,6 @@ import app.mobiefy.ui.theme.primary
 import app.mobiefy.ui.theme.secondary
 import app.mobiefy.ui.theme.tertiary
 import app.mobiefy.ui.theme.white
-import com.google.android.gms.common.SignInButton.ButtonSize
 
 @Composable
 fun IconRound(text: String, icon: Painter) {

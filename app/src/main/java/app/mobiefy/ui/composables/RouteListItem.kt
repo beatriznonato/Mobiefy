@@ -91,24 +91,7 @@ Spacer(modifier = Modifier.height(20.dp))
                         fontSize = 15.sp
                     )
                 }
-//                Spacer(modifier = Modifier.width(8.dp))
-//                Icon(
-//                    imageVector = Icons.Rounded.Circle,
-//                    contentDescription = "Circle",
-//                    tint = secondary,
-//                    modifier = Modifier.size(6.dp)
-//                )
-//                Spacer(modifier = Modifier.width(8.dp))
-//                Icon(
-//                    imageVector = Icons.Rounded.Battery4Bar,
-//                    contentDescription = "Battery",
-//                    tint = secondary,
-//                    modifier = Modifier.size(12.dp)
-//                )
-//                Spacer(modifier = Modifier.width(2.dp))
-//                Text(text = "56km", color = black, fontSize = 15.sp)
             }
-
             Divider(thickness = 1.dp, color = divider, modifier = Modifier.padding(top = 20.dp))
         }
     }

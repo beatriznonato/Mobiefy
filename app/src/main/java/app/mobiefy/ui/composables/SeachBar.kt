@@ -1,14 +1,11 @@
 package app.mobiefy.ui.composables
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,7 +16,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -42,7 +38,6 @@ import app.mobiefy.ui.theme.black
 import app.mobiefy.ui.theme.secondary
 import app.mobiefy.ui.theme.white
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun CustomSearchBar() {
@@ -70,10 +65,8 @@ fun CustomSearchBar() {
                     placeholder = { Text(text = "Buscar") },
                     value = searchText,
                     onValueChange = { searchText = it },
-                    //label = { Text("Search") },
                     modifier = Modifier
                         .fillMaxWidth(),
-                    //.height(35.dp)
                     keyboardOptions = KeyboardOptions.Default.copy(
                         imeAction = ImeAction.Done
                     ),
@@ -120,5 +113,4 @@ fun CustomSearchBar() {
             }
         }
     }
-
 }
