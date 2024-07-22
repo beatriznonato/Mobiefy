@@ -48,6 +48,7 @@ import app.mobiefy.R
 import app.mobiefy.navigation.Routes
 import app.mobiefy.ui.composables.ButtonDefault
 import app.mobiefy.ui.theme.primary
+import app.mobiefy.ui.theme.secondary
 import app.mobiefy.ui.theme.tertiary
 
 @Composable
@@ -204,6 +205,7 @@ fun SignUpScreen(
                             ButtonDefault(
                                 text = "Cadastrar",
                                 btnColor = primary,
+                                textColor = secondary,
                                 modifier = Modifier.fillMaxWidth(),
                                 enabled = name.isNotEmpty() && surname.isNotEmpty(),
                                 onClick = onSignUpClick

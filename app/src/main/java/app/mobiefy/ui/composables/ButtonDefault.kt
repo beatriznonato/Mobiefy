@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ButtonDefault(text: String, btnColor: Color, modifier: Modifier, enabled: Boolean? = true, onClick: () -> Unit) {
+fun ButtonDefault(text: String, btnColor: Color, textColor: Color, modifier: Modifier, enabled: Boolean? = true, onClick: () -> Unit) {
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(containerColor = btnColor),
@@ -21,6 +21,6 @@ fun ButtonDefault(text: String, btnColor: Color, modifier: Modifier, enabled: Bo
         enabled = enabled ?: true,
         modifier = modifier
     ) {
-        Text(text = text, fontWeight = FontWeight(700), fontSize = 16.sp, modifier = Modifier.padding(vertical = 10.dp))
+        Text(text = text, fontWeight = FontWeight(700), fontSize = 16.sp, modifier = Modifier.padding(vertical = 10.dp), color = textColor)
     }
 }

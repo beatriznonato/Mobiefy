@@ -36,6 +36,7 @@ import app.mobiefy.R
 import app.mobiefy.navigation.Routes
 import app.mobiefy.ui.composables.ButtonDefault
 import app.mobiefy.ui.theme.primary
+import app.mobiefy.ui.theme.secondary
 import app.mobiefy.ui.theme.tertiary
 
 @Composable
@@ -121,6 +122,7 @@ fun LoginScreen(
                     ButtonDefault(
                         text = "Entrar",
                         btnColor = primary,
+                        textColor = secondary,
                         modifier = Modifier.fillMaxWidth(),
                         onClick = onLoginClick
                     )
