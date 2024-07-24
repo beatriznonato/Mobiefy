@@ -1,15 +1,18 @@
 package app.mobiefy.ui.screens.loginscreen
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
@@ -22,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -36,8 +40,7 @@ import app.mobiefy.R
 import app.mobiefy.navigation.Routes
 import app.mobiefy.ui.composables.ButtonDefault
 import app.mobiefy.ui.theme.primary
-import app.mobiefy.ui.theme.secondary
-import app.mobiefy.ui.theme.tertiary
+import app.mobiefy.ui.theme.white
 
 @Composable
 fun LoginScreen(
@@ -45,20 +48,28 @@ fun LoginScreen(
     navController: NavController,
     onLoginClick: () -> Unit,
 ) {
-    Column(modifier = Modifier.padding(horizontal = 27.dp)) {
-        Spacer(modifier = Modifier.height(135.dp))
+    Column(modifier = Modifier.padding(horizontal = 27.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Spacer(modifier = Modifier.fillMaxHeight(0.075f),)
+        Image(
+            painter = painterResource(id = R.drawable.login),
+            contentDescription = "Welcome background screen",
+
+            modifier = Modifier
+                .widthIn(max = 155.dp)
+        )
+        Spacer(modifier = Modifier.height(60.dp))
         Text(
-            text = "Mobiefy",
-            fontSize = 37.sp,
+            text = "Bem-vindo de volta!",
+            fontSize = 32.sp,
             fontFamily = FontFamily(Font(R.font.righteous)),
+            lineHeight = 41.sp,
+            letterSpacing = 0.29.sp,
             color = primary
         )
-        Spacer(modifier = Modifier.height(12.dp))
-        Text(text = "Bem vindo de volta!", fontSize = 16.sp)
-        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(15.dp))
         Column {
             Column {
-                Text(text = "E-mail", fontSize = 16.sp)
+                Text(text = "E-mail", fontSize = 17.sp)
                 Spacer(modifier = Modifier.height(10.dp))
                 TextField(
                     value = uiState.email,
@@ -68,16 +79,16 @@ fun LoginScreen(
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(18.dp)),
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = tertiary,
-                        unfocusedContainerColor = tertiary,
+                        focusedContainerColor = Color(0x17322E53),
+                        unfocusedContainerColor = Color(0x17322E53),
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent
                     ),
                 )
             }
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(27.dp))
             Column {
-                Text(text = "Senha", fontSize = 16.sp)
+                Text(text = "Senha", fontSize = 17.sp)
                 Spacer(modifier = Modifier.height(10.dp))
                 TextField(
                     value = uiState.password,
@@ -88,8 +99,8 @@ fun LoginScreen(
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(18.dp)),
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = tertiary,
-                        unfocusedContainerColor = tertiary,
+                        focusedContainerColor = Color(0x17322E53),
+                        unfocusedContainerColor = Color(0x17322E53),
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent
                     ),
@@ -105,7 +116,7 @@ fun LoginScreen(
                     )
                 }
             }
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.weight(1f))
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -122,7 +133,7 @@ fun LoginScreen(
                     ButtonDefault(
                         text = "Entrar",
                         btnColor = primary,
-                        textColor = secondary,
+                        textColor = white,
                         modifier = Modifier.fillMaxWidth(),
                         onClick = onLoginClick
                     )
@@ -131,7 +142,7 @@ fun LoginScreen(
                     navController.navigate(Routes.Home.route)
                 }
             }
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(15.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -144,7 +155,7 @@ fun LoginScreen(
                         navController.navigate(Routes.SignUp.route)
                     },
                     style = TextStyle(
-                        fontSize = 16.sp,
+                        fontSize = 17.sp,
                         color = primary,
                         fontWeight = FontWeight(700)
                     )
