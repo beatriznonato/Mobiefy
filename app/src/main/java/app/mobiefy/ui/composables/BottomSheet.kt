@@ -22,8 +22,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import app.mobiefy.R
 import app.mobiefy.data.FavouriteLocation
+import app.mobiefy.ui.theme.brightShade
 import app.mobiefy.ui.theme.primary
-import app.mobiefy.ui.theme.secondary
 import app.mobiefy.ui.theme.white
 
 val favLocations = listOf(
@@ -53,7 +53,7 @@ fun BottomSheet(pageContent: Unit) {
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
         sheetPeekHeight = 150.dp,
-        sheetContainerColor = primary,
+        sheetContainerColor = white,
         sheetDragHandle = { DragBar() },
         sheetContent = {
             BottomSheetContent()
@@ -71,14 +71,13 @@ fun BottomSheetContent() {
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp))
-                .background(white)
+                .background(brightShade)
         ) {
             Row {
                 Spacer(modifier = Modifier.width(10.dp))
                 LazyRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                    //.padding(horizontal = 23.dp, vertical = 15.dp)
                 ) {
                     items(favLocations.size) { index ->
                         FavLocationsBox(index)
@@ -112,7 +111,7 @@ fun DragBar() {
     Icon(
         painter = painterResource(id = R.drawable.drag_bar),
         contentDescription = "Drag bar",
-        tint = secondary,
+        tint = primary,
         modifier = Modifier
             .padding(vertical = 15.dp)
             .width(80.dp)

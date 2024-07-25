@@ -29,7 +29,6 @@ import androidx.compose.ui.unit.sp
 import app.mobiefy.ui.theme.black
 import app.mobiefy.ui.theme.primary
 import app.mobiefy.ui.theme.secondary
-import app.mobiefy.ui.theme.tertiary
 import app.mobiefy.ui.theme.white
 
 @Composable
@@ -52,7 +51,7 @@ fun IconRound(text: String, icon: Painter) {
             Box(
                 modifier = Modifier
                     .clip(CircleShape)
-                    .background(tertiary)
+                    .background(primary)
                     .width(55.dp)
                     .height(55.dp),
                 contentAlignment = Alignment.Center
@@ -60,8 +59,8 @@ fun IconRound(text: String, icon: Painter) {
                 Icon(
                     painter = icon,
                     contentDescription = text,
-                    tint = primary,
-                    modifier = Modifier.size(28.dp)
+                    tint = white,
+                    modifier = Modifier.size(25.dp)
                 )
             }
         }

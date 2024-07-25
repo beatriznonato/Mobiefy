@@ -14,7 +14,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -35,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.mobiefy.R
 import app.mobiefy.ui.theme.black
+import app.mobiefy.ui.theme.brightShade
 import app.mobiefy.ui.theme.secondary
 import app.mobiefy.ui.theme.white
 
@@ -49,7 +49,7 @@ fun CustomSearchBar() {
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(13.dp))
-            .background(white)
+            .background(brightShade)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
@@ -79,8 +79,8 @@ fun CustomSearchBar() {
                         }
                     ),
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = white,
-                        unfocusedContainerColor = white,
+                        focusedContainerColor = brightShade,
+                        unfocusedContainerColor = brightShade,
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent
                     ),
