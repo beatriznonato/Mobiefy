@@ -69,7 +69,7 @@ fun SignUpScreen(
             Spacer(modifier = Modifier.height(65.dp))
             Column(modifier = Modifier.padding(horizontal = 27.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Image(
-                    painter = painterResource(id = R.drawable.login),
+                    painter = painterResource(id = R.drawable.create_account),
                     contentDescription = "Welcome background screen",
                     modifier = Modifier
                         .widthIn(max = 106.dp)
