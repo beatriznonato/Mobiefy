@@ -2,6 +2,7 @@ package app.mobiefy.ui.screens.signupscreen
 
 import android.util.Patterns
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
@@ -33,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -48,8 +51,7 @@ import app.mobiefy.R
 import app.mobiefy.navigation.Routes
 import app.mobiefy.ui.composables.ButtonDefault
 import app.mobiefy.ui.theme.primary
-import app.mobiefy.ui.theme.secondary
-import app.mobiefy.ui.theme.tertiary
+import app.mobiefy.ui.theme.white
 
 @Composable
 fun SignUpScreen(
@@ -64,16 +66,22 @@ fun SignUpScreen(
 
     LazyColumn() {
         item {
-            Column(modifier = Modifier.padding(horizontal = 27.dp)) {
-                Spacer(modifier = Modifier.height(80.dp))
+            Spacer(modifier = Modifier.height(65.dp))
+            Column(modifier = Modifier.padding(horizontal = 27.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(id = R.drawable.create_account),
+                    contentDescription = "Welcome background screen",
+                    modifier = Modifier
+                        .widthIn(max = 106.dp)
+                )
+                Spacer(modifier = Modifier.height(50.dp))
                 Text(
-                    text = "Mobiefy",
-                    fontSize = 37.sp,
+                    text = "Faça seu cadastro!",
+                    fontSize = 32.sp,
                     fontFamily = FontFamily(Font(R.font.righteous)),
                     color = primary
                 )
-                Spacer(modifier = Modifier.height(12.dp))
-                Text(text = "Cadastre-se para desbloquear rotas inteligentes!", fontSize = 16.sp)
+
                 Spacer(modifier = Modifier.height(35.dp))
                 Column {
                     Column {
@@ -81,15 +89,14 @@ fun SignUpScreen(
                         Spacer(modifier = Modifier.height(10.dp))
                         TextField(
                             value = name,
-                            placeholder = { Text(text = "Maria") },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                             onValueChange = { name = it },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(18.dp)),
                             colors = TextFieldDefaults.colors(
-                                focusedContainerColor = tertiary,
-                                unfocusedContainerColor = tertiary,
+                                focusedContainerColor = Color(0x17322E53),
+                                unfocusedContainerColor = Color(0x17322E53),
                                 focusedIndicatorColor = Color.Transparent,
                                 unfocusedIndicatorColor = Color.Transparent
                             ),
@@ -111,15 +118,14 @@ fun SignUpScreen(
                         Spacer(modifier = Modifier.height(10.dp))
                         TextField(
                             value = surname,
-                            placeholder = { Text(text = "Silva") },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                             onValueChange = { surname = it },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(18.dp)),
                             colors = TextFieldDefaults.colors(
-                                focusedContainerColor = tertiary,
-                                unfocusedContainerColor = tertiary,
+                                focusedContainerColor = Color(0x17322E53),
+                                unfocusedContainerColor = Color(0x17322E53),
                                 focusedIndicatorColor = Color.Transparent,
                                 unfocusedIndicatorColor = Color.Transparent
                             ),
@@ -142,14 +148,13 @@ fun SignUpScreen(
                         TextField(
                             value = uiState.email,
                             onValueChange = uiState.onEmailChange,
-                            placeholder = { Text(text = "email@exemplo.com") },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(18.dp)),
                             colors = TextFieldDefaults.colors(
-                                focusedContainerColor = tertiary,
-                                unfocusedContainerColor = tertiary,
+                                focusedContainerColor = Color(0x17322E53),
+                                unfocusedContainerColor = Color(0x17322E53),
                                 focusedIndicatorColor = Color.Transparent,
                                 unfocusedIndicatorColor = Color.Transparent
                             ),
@@ -163,14 +168,13 @@ fun SignUpScreen(
                         TextField(
                             value = uiState.password,
                             onValueChange = uiState.onPasswordChange,
-                            placeholder = { Text(text = "uma senha forte") },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(18.dp)),
                             colors = TextFieldDefaults.colors(
-                                focusedContainerColor = tertiary,
-                                unfocusedContainerColor = tertiary,
+                                focusedContainerColor = Color(0x17322E53),
+                                unfocusedContainerColor = Color(0x17322E53),
                                 focusedIndicatorColor = Color.Transparent,
                                 unfocusedIndicatorColor = Color.Transparent
                             ),
@@ -205,7 +209,7 @@ fun SignUpScreen(
                             ButtonDefault(
                                 text = "Cadastrar",
                                 btnColor = primary,
-                                textColor = secondary,
+                                textColor = if (name.isNotEmpty() && surname.isNotEmpty()){ white } else { primary},
                                 modifier = Modifier.fillMaxWidth(),
                                 enabled = name.isNotEmpty() && surname.isNotEmpty(),
                                 onClick = onSignUpClick
@@ -241,7 +245,7 @@ fun SignUpScreen(
                 )
             )
         }
-        Spacer(modifier = Modifier.height(65.dp))
+        Spacer(modifier = Modifier.height(85.dp))
     }
 }
 
