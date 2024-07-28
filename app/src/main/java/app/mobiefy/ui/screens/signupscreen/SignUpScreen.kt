@@ -217,7 +217,7 @@ fun SignUpScreen(
                         }
 
                         if (uiState.success) {
-                            navController.navigate(Routes.Login.route)
+                            navController.navigate(Routes.Success.route)
                         }
                         Spacer(modifier = Modifier.height(20.dp))
                     }

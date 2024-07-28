@@ -13,6 +13,7 @@ import app.mobiefy.ui.screens.loginscreen.LoginScreen
 import app.mobiefy.ui.screens.loginscreen.LoginViewModel
 import app.mobiefy.ui.screens.signupscreen.SignUpScreen
 import app.mobiefy.ui.screens.signupscreen.SignUpViewModel
+import app.mobiefy.ui.screens.signupscreen.SuccessScreen
 import app.mobiefy.ui.screens.welcomescreen.WelcomeScreen
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
@@ -60,6 +61,9 @@ fun Navigation() {
                     }
                 }
             )
+        }
+        composable(Routes.Success.route) {
+            SuccessScreen(navController = navController)
         }
         composable(Routes.Home.route) {
             HomeScreen(navController = navController)
