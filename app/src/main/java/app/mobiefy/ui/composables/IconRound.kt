@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.mobiefy.ui.theme.black
 import app.mobiefy.ui.theme.primary
-import app.mobiefy.ui.theme.secondary
 import app.mobiefy.ui.theme.white
 
 @Composable
@@ -77,7 +76,7 @@ fun IconRound(text: String, icon: Painter) {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonColors(
-                        containerColor = secondary,
+                        containerColor = primary,
                         contentColor = white,
                         disabledContainerColor = white,
                         disabledContentColor = black
