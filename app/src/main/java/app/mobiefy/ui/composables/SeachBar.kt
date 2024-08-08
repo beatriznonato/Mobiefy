@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.dp
 import app.mobiefy.R
 import app.mobiefy.ui.theme.black
 import app.mobiefy.ui.theme.brightShade
-import app.mobiefy.ui.theme.secondary
+import app.mobiefy.ui.theme.primary
 import app.mobiefy.ui.theme.white
 
 @Preview
@@ -96,7 +96,7 @@ fun CustomSearchBar() {
                             Button(
                                 modifier = Modifier.fillMaxWidth(),
                                 colors = ButtonColors(
-                                    containerColor = secondary,
+                                    containerColor = primary,
                                     contentColor = white,
                                     disabledContainerColor = white,
                                     disabledContentColor = black
